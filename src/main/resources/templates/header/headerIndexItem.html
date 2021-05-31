@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card-header">
+    <h4 th:text="${title}"></h4>
+</div>
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-bordered table-md">
+            <tbody>
+            <tr>
+                <th>商品序号</th>
+                <th>名称</th>
+                <th>条码</th>
+                <th>数量</th>
+                <th>单位</th>
+            </tr>
+            <tr th:each="relative: ${relativeList}">
+                <td th:text="${relative.goods.id}"></td>
+                <td th:text="${relative.goods.name}"></td>
+                <td th:text="${relative.goods.barcode}"></td>
+                <td>
+                    <div class="badge badge-success" th:text="${relative.num}"></div>
+                </td>
+                <td th:text="|${relative.goods.price}元/${relative.goods.unit}|"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="card-footer text-right">
+    <nav class="d-inline-block">
+        <ul class="pagination mb-0">
+            <li class="page-item">
+                <button class="page-link"
+                        th:onclick="|switchItem(${page - 1 > 0 ? (page - 1) : 1},${isApply})|">
+                    <i class="fas fa-chevron-left"></i></button>
+            </li>
+            <li class="page-item" th:if="${page - 2 > 0 && page + 1 > maxPage}">
+                <button class="page-link" th:onclick="|switchItem(${page - 2},${isApply})|"
+                        th:text="${page - 2}"></button>
+            </li>
+
+            <li class="page-item" th:if="${page - 1 > 0}">
+                <button class="page-link" th:onclick="|switchItem(${page - 1},${isApply})|"
+                        th:text="${page - 1}"></button>
+            </li>
+
+            <li class="page-item active">
+                <button class="page-link" th:onclick="|switchItem(${page},${isApply})|"
+                        th:text="${page}">
+                </button>
+            </li>
+
+            <li class="page-item" th:if="${page + 1 <= maxPage}">
+                <button class="page-link" th:onclick="|switchItem(${page + 1},${isApply})|"
+                        th:text="${page + 1}"></button>
+            </li>
+
+            <li class="page-item" th:if="${page - 1 < 1 && page + 2 <= maxPage}">
+                <button class="page-link" th:onclick="|switchItem(${page + 2},${isApply})|"
+                        th:text="${page + 2}"></button>
+            </li>
+
+            <li class="page-item">
+                <button class="page-link"
+                        th:onclick="|switchItem(${page + 1 <= maxPage ? page + 1 : page},${isApply})|">
+                    <i class="fas fa-chevron-right"></i></button>
+            </li>
+        </ul>
+    </nav>
+</div>
+</body>
+</html>

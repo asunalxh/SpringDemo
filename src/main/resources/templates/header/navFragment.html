@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="main-sidebar sidebar-style-2" th:fragment="headerLeftIndex">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a href="index">物资分配调拨决策支持系统</a>
+        </div>
+        <div class="sidebar-brand sidebar-brand-sm">
+            <a href="index">总部</a>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li class="menu-header">物资管理</li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>物资管理</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="/index">基本信息</a></li>
+                    <li><a class="nav-link" href="/distribution">物资分配</a></li>
+                </ul>
+            </li>
+            <li class="menu-header">信息管理</li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown"><i
+                        class="fas fa-clipboard"></i><span>商品信息管理</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="addGoods">添加商品</a></li>
+                    <li><a class="nav-link" href="goodsList">商品列表</a></li>
+                    <li><a class="nav-link" href="classifyList">商品类别管理</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown"><i
+                        class="fas fa-shopping-cart"></i><span>超市信息管理</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="addMarket">添加超市</a></li>
+                    <li><a class="nav-link" href="marketList">超市列表</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-home"></i><span>仓库信息管理</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="addWarehouse">添加仓库</a></li>
+                    <li><a class="nav-link" href="warehouseList">仓库列表</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-user"></i><span>用户管理</span></a>
+                <ul class="dropdown-menu">
+                    <li><a class="nav-link" href="userRegister">添加用户</a></li>
+                    <li><a class="nav-link" href="userList">用户列表</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                <i class="fas fa-rocket"></i> Documentation
+            </a>
+        </div>
+    </aside>
+</div>
+
+<nav class="navbar navbar-expand-lg main-navbar" th:fragment="headerTopIndex">
+    <form class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a>
+            </li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                    class="fas fa-search"></i></a></li>
+        </ul>
+        <div class="search-element">
+            <div class="search-backdrop"></div>
+            <div class="search-result"></div>
+        </div>
+    </form>
+    <ul class="navbar-nav navbar-right">
+        <li class="dropdown"><a href="#" data-toggle="dropdown"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <img alt="image" th:src="@{assets/img/avatar/avatar-1.png}" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block" id="count"></div>
+        </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="profile" class="dropdown-item has-icon">
+                    <i class="far fa-user"></i> Profile
+                </a>
+                <a href="/logout" class="dropdown-item has-icon text-danger">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+
+
+
+</body>
+</html>

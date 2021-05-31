@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg main-navbar" th:fragment="marketTopIndex">
+    <form class="form-inline mr-auto">
+        <ul class="navbar-nav mr-3">
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a>
+            </li>
+            <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                    class="fas fa-search"></i></a></li>
+        </ul>
+        <div class="search-element">
+            <div class="search-backdrop"></div>
+            <div class="search-result"></div>
+        </div>
+    </form>
+    <ul class="navbar-nav navbar-right">
+        <li class="dropdown"><a href="#" data-toggle="dropdown"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <img alt="image" th:src="@{assets/img/avatar/avatar-1.png}" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block" id="count"></div>
+        </a>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="profile" class="dropdown-item has-icon">
+                    <i class="far fa-user"></i> Profile
+                </a>
+                <a href="/logout" class="dropdown-item has-icon text-danger">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+<div class="main-sidebar sidebar-style-2" th:fragment="marketLeftIndex">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a href="marketIndex.html">物资分配调拨决策支持系统</a>
+        </div>
+        <div class="sidebar-brand sidebar-brand-sm">
+            <a href="marketIndex.html">超市</a>
+        </div>
+
+        <ul class="sidebar-menu">
+            <li class="menu-header">控制台</li>
+            <li><a class="nav-link" th:href="@{index}"><i class="fas fa-align-left"></i>
+                <span>商品申请与分配情况</span></a></li>
+            <li><a class="nav-link" th:href="@{apply}"><i class="fas fa-pencil-alt"></i>
+                <span>添加与修改商品申请</span></a></li>
+        </ul>
+
+        <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+            <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+                <i class="fas fa-rocket"></i> Documentation
+            </a>
+        </div>
+    </aside>
+</div>
+
+</body>
+</html>

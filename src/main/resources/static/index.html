@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/assets/modules/jquery.min.js"></script>
+    <script src="management.js"></script>
+    <script>
+        $(document).ready((e)=>{
+            getJSON('http://81.70.41.11:8082/userInfo', (result => {
+                if (result['type'] === '总部')
+                    window.location.href = '../templates/header/headerIndex.html'
+                else if (result['type'] === '超市')
+                    window.location.href = '../templates/market/marketIndex.html'
+                else if(result['type'] === '仓库')
+                    window.location.href = '/warehouse/warehouseIndex.html'
+            }))
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>

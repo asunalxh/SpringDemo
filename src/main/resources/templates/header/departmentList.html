@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Blank Page &mdash; Stisla</title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" th:href="@{assets/modules/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{assets/modules/fontawesome/css/all.min.css}">
+
+    <!-- CSS Libraries -->
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/components.css}">
+    <!-- Start GA -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-94034622-3');
+    </script>
+    <!-- /END GA --></head>
+
+<body>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+
+        <nav class="navbar navbar-expand-lg main-navbar" th:include="header/navFragment :: headerTopIndex"></nav>
+
+        <div class="main-sidebar sidebar-style-2" th:include="header/navFragment :: headerLeftIndex"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <section class="section">
+                <div class="section-header">
+                    <h1 th:text="${isMarket ? '超市信息列表' : '仓库信息列表'}"></h1>
+                </div>
+
+                <div class="section-body">
+                    <!--                    列表-->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>详细信息</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped" id="table-1">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center">
+                                                    序号
+                                                </th>
+                                                <th>名称</th>
+                                                <th>地址</th>
+                                                <th>电话</th>
+                                                <th>联系人</th>
+                                                <th>编辑</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr th:each="department : ${departmentList}">
+                                                <td th:text="${department.id}"></td>
+                                                <td th:text="${department.name}"></td>
+                                                <td th:text="${department.address}"></td>
+                                                <td>
+                                                    <div class="badge  badge-success" th:text="${department.tel}"></div>
+                                                </td>
+                                                <td>
+                                                    <div class="badge  badge-success"
+                                                         th:text="${department.contacts}"></div>
+                                                </td>
+                                                <td>
+                                                    <a th:href="|${isMarket ? 'marketInfo' : 'warehouseInfo'}?id=${department.id}|"
+                                                       class="btn btn-secondary">Detail</a>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+        <footer class="main-footer">
+            <div class="footer-left">
+                Copyright &copy; 2018
+                <div class="bullet"></div>
+                Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+            </div>
+            <div class="footer-right">
+
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!-- General JS Scripts -->
+<script th:src="@{assets/modules/jquery.min.js}"></script>
+<script th:src="@{assets/modules/popper.js}"></script>
+<script th:src="@{assets/modules/tooltip.js}"></script>
+<script th:src="@{assets/modules/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/modules/nicescroll/jquery.nicescroll.min.js}"></script>
+<script th:src="@{assets/modules/moment.min.js}"></script>
+<script th:src="@{assets/js/stisla.js}"></script>
+
+<!-- JS Libraies -->
+<script th:src="@{assets/modules/sweetalert/sweetalert.min.js}"></script>
+
+<!-- Page Specific JS File -->
+
+<!-- Template JS File -->
+<script th:src="@{assets/js/scripts.js}"></script>
+<script th:src="@{assets/js/custom.js}"></script>
+
+</body>
+</html>

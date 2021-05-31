@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Blank Page &mdash; Stisla</title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" th:href="@{assets/modules/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{assets/modules/fontawesome/css/all.min.css}">
+
+    <!-- CSS Libraries -->
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/components.css}">
+    <!-- Start GA -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-94034622-3');
+    </script>
+    <!-- /END GA --></head>
+
+<body>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+
+        <nav class="navbar navbar-expand-lg main-navbar" th:include="market/navFragment :: marketTopIndex"></nav>
+
+        <div class="main-sidebar sidebar-style-2" th:include="market/navFragment :: marketLeftIndex"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <section class="section">
+                <div class="section-header">
+                    <h1>商品申请信息</h1>
+                </div>
+
+                <div class="section-body">
+                    <form th:action="@{replaceApply}" method="post">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4>商品列表</h4>
+                                        <div class="card-header-form">
+                                            <form id="searchForm">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" placeholder="Search"
+                                                           id="search">
+                                                    <div class="input-group-btn">
+                                                        <button class="btn btn-primary"><i class="fas fa-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <tbody id="list">
+                                                <tr>
+                                                    <th>
+                                                        <div class="custom-checkbox custom-control">
+                                                            <input type="checkbox" data-checkboxes="mygroup"
+                                                                   data-checkbox-role="dad" class="custom-control-input"
+                                                                   id="checkbox-all">
+                                                            <label for="checkbox-all"
+                                                                   class="custom-control-label">&nbsp;</label>
+                                                        </div>
+                                                    </th>
+                                                    <th>ID</th>
+                                                    <th>商品名称</th>
+                                                    <th>条码</th>
+                                                    <th>单价</th>
+                                                    <th>商品类型</th>
+                                                    <th>数量</th>
+                                                </tr>
+                                                <tr th:each="goods : ${goodsList}" th:id="${goods.id}">
+                                                    <td class="p-0 text-center">
+                                                        <div class="custom-checkbox custom-control">
+                                                            <input type="checkbox" data-checkboxes="mygroup"
+                                                                   class="custom-control-input"
+                                                                   th:id="|checkbox-${goods['id']}|">
+                                                            <label th:for="|checkbox-${goods['id']}|"
+                                                                   class="custom-control-label">&nbsp;</label>
+                                                        </div>
+                                                    </td>
+                                                    <td><input th:value="${goods.id}" name="id" readonly disabled></td>
+                                                    <td th:text="${goods.name}"></td>
+                                                    <td th:text="${goods.barcode}"></td>
+                                                    <td th:text="|${goods.price}元 / ${goods.unit}|"></td>
+                                                    <td>
+                                                        <div class="badge badge-success"
+                                                             th:text="${goods.classifyName}"></div>
+                                                    </td>
+                                                    <td><input type="number" class="col-2 px-0" name="num" value="0"
+                                                               disabled></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                    <div class="card-footer text-right">
+                                        <button class="btn btn-primary" id="submitBtn">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </section>
+        </div>
+        <footer class="main-footer">
+            <div class="footer-left">
+                Copyright &copy; 2018
+                <div class="bullet"></div>
+                Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+            </div>
+            <div class="footer-right">
+
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!-- General JS Scripts -->
+<script th:src="@{assets/modules/jquery.min.js}"></script>
+<script th:src="@{assets/modules/popper.js}"></script>
+<script th:src="@{assets/modules/tooltip.js}"></script>
+<script th:src="@{assets/modules/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/modules/nicescroll/jquery.nicescroll.min.js}"></script>
+<script th:src="@{assets/modules/moment.min.js}"></script>
+<script th:src="@{assets/js/stisla.js}"></script>
+
+<!-- JS Libraies -->
+<script th:src="@{assets/modules/sweetalert/sweetalert.min.js}"></script>
+
+<!-- Page Specific JS File -->
+
+<!-- Template JS File -->
+<script th:src="@{assets/js/scripts.js}"></script>
+<script th:src="@{assets/js/custom.js}"></script>
+<script th:src="@{checkbox.js}"></script>
+
+<script>
+    $.getJSON("applyList", (result) => {
+        $.each(result, (i, x) => {
+            $(`#${x['id']} input[name="num"]`).removeAttr('disabled')
+            $(`#${x['id']} input[name="id"]`).removeAttr('disabled')
+            $(`#${x['id']} input[name="num"]`).val(x['num'])
+            $(`#${x['id']} input[type=checkbox]`).prop('checked', true)
+        })
+    })
+
+</script>
+</body>
+</html>

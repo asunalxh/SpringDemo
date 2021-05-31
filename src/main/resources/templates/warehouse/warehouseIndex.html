@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Blank Page &mdash; Stisla</title>
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" th:href="@{assets/modules/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{assets/modules/fontawesome/css/all.min.css}">
+
+    <!-- CSS Libraries -->
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" th:href="@{assets/css/style.css}">
+    <link rel="stylesheet" th:href="@{assets/css/components.css}">
+    <!-- Start GA -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-94034622-3');
+    </script>
+    <!-- /END GA --></head>
+
+<body>
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        <nav class="navbar navbar-expand-lg main-navbar" th:include="warehouse/navFragment :: warehouseTopIndex"></nav>
+
+        <div class="main-sidebar sidebar-style-2" th:include="warehouse/navFragment :: warehouseLeftIndex"></div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <section class="section">
+                <div class="section-header">
+                    <h1>分配任务</h1>
+                </div>
+
+                <div class="section-body">
+                    <div class="d-flex flex-wrap">
+                        <div th:each="x: ${list}" class="col-12 col-md-6 col-lg-6 box">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 th:text="${x.marketName}"></h4>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-md">
+                                            <tbody>
+                                            <tr>
+                                                <th>商品ID</th>
+                                                <th>商品名</th>
+                                                <th>条码</th>
+                                                <th>数量</th>
+                                                <th>单位</th>
+                                            </tr>
+                                            <tr th:each="distribution : ${x.distributionList}">
+                                                <td th:text="${distribution.goodsID}"></td>
+                                                <td th:text="${distribution.goodsName}"></td>
+                                                <td th:text="${distribution.goodsBarcode}"></td>
+                                                <td>
+                                                    <div class="badge badge-danger" th:text="${distribution.num}"></div>
+                                                </td>
+                                                <td th:text="${distribution.goodsPrice} + '元/' + ${distribution.goodsUnit}"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <footer class="main-footer">
+            <div class="footer-left">
+                Copyright &copy; 2018
+                <div class="bullet"></div>
+                Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+            </div>
+            <div class="footer-right">
+
+            </div>
+        </footer>
+    </div>
+</div>
+
+<!-- General JS Scripts -->
+<script th:src="@{assets/modules/jquery.min.js}"></script>
+<script th:src="@{assets/modules/popper.js}"></script>
+<script th:src="@{assets/modules/tooltip.js}"></script>
+<script th:src="@{assets/modules/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{assets/modules/nicescroll/jquery.nicescroll.min.js}"></script>
+<script th:src="@{assets/modules/moment.min.js}"></script>
+<script th:src="@{assets/js/stisla.js}"></script>
+
+<!-- JS Libraies -->
+<script th:src="@{assets/modules/sweetalert/sweetalert.min.js}"></script>
+
+<!-- Page Specific JS File -->
+
+<!-- Template JS File -->
+<script th:src="@{assets/js/scripts.js}"></script>
+<script th:src="@{assets/js/custom.js}"></script>
+<script th:src="@{assets/js/masonry.pkgd.min.js}"></script>
+
+</body>
+</html>

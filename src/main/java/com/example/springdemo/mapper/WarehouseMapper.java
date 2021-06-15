@@ -48,7 +48,7 @@ public interface WarehouseMapper {
     @Delete("delete from warehouse where id=#{id}")
     void delWarehouse(@Param("id") String id);
 
-    @Update("update warehouse set name=#{name},address=#{address},tel=#{tel},contacts=#{contacts}")
+    @Update("update warehouse set name=#{name},address=#{address},tel=#{tel},contacts=#{contacts} where id=#{id}")
     void updateWarehouse(Department department);
 
     @Delete("delete from supply where warehouse=#{id}")

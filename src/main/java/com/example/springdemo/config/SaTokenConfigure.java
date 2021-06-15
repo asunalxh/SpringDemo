@@ -6,7 +6,6 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * @author: 李鑫豪
  * @created: 2021/05/27 19:51
  * @description: 登陆验证配置
  */

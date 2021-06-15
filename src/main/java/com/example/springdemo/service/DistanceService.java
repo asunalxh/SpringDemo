@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: 李鑫豪
  * @created: 2021/05/26 19:37
  * @description: 距离查询服务
  */

@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: 李鑫豪
  * @created: 2021/05/27 22:44
  * @description: 总部管理商品信息
  */

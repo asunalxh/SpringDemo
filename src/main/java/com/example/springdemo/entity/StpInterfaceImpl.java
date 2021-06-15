@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import cn.dev33.satoken.stp.StpInterface;
 
 /**
- * @author: 李鑫豪
  * @created: 2021/05/27 20:23
  * @description: 登陆权限
  */

@@ -5,7 +5,6 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @author: 李鑫豪
  * @created: 2021/05/25 21:35
  * @description: 超市对象
  */

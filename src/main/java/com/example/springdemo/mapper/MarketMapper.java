@@ -48,7 +48,7 @@ public interface MarketMapper {
     @Insert("insert into market(id,name,address,tel,contacts) values(#{id},#{name},#{address},#{tel},#{contacts})")
     void insertMarket(Department department);
 
-    @Update("update market set name=#{name},address=#{address},tel=#{tel},contacts=#{contacts}")
+    @Update("update market set name=#{name},address=#{address},tel=#{tel},contacts=#{contacts} where id=#{id}")
     void updateMarket(Department department);
 
     @Delete("delete from apply where market=#{id}")

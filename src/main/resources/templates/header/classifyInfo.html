@@ -52,18 +52,18 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">分类名称</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="classifyName" th:value="${name}">
+                                    <input type="text" class="form-control" id="classifyName" th:value="${name}" readonly>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between">
-                            <div class="card-footer text-right">
-                                <button class="btn btn-danger" onclick="delInfo()" id="delBtn">Delete</button>
-                            </div>
-                            <div class="card-footer text-right">
-                                <button class="btn btn-primary" onclick="updateInfo()">Submit</button>
-                            </div>
-                        </div>
+<!--                        <div class="d-flex justify-content-between">-->
+<!--                            <div class="card-footer text-right">-->
+<!--                                <button class="btn btn-danger" onclick="delInfo()" id="delBtn">Delete</button>-->
+<!--                            </div>-->
+<!--                            <div class="card-footer text-right">-->
+<!--                                <button class="btn btn-primary" onclick="updateInfo()">Submit</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
                     </div>
                     <div class="row">
                         <div class="col-12">
@@ -95,7 +95,7 @@
                                                 <td>
                                                     <div class="badge  badge-success" th:text="${goods.classify}"></div>
                                                 </td>
-                                                <td><a href="#" class="btn btn-secondary">Detail</a></td>
+                                                <td><a th:href="|goodsInfo?id=${goods.id}|" class="btn btn-secondary">Detail</a></td>
                                             </tr>
                                             </tbody>
                                         </table>

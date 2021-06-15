@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author: 李鑫豪
  * @created: 2021/05/25 16:07
  * @description:
  */
@@ -40,7 +39,6 @@ public class UserController {
             StpUtil.setLoginId(id);
             return "redirect:/index";
         }
-
         return "redirect:/login";
     }
 
